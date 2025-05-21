@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca del Terreno Chipaquense</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- Asegúrate de tener este archivo CSS enlazado correctamente -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <style>
+        /* Estilos generales para el diseño */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para la sección "Acerca del Terreno Chipaquense" */
+        #acerca-del-terreno {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 1200px;
+        }
+
+        /* Contenedor de la descripción */
+        #acerca-del-terreno > div {
+            flex: 1;
+            margin-right: 20px;
+            max-width: 50%; /* Limitar el tamaño del texto */
+        }
+
+        /* Ajuste del mapa */
+        #map {
+            height: 400px;
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para el texto de la descripción */
+        #acerca-del-terreno p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Contenedor del mapa y el polígono */
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .description {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .map-container {
+            flex: 1;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Título y descripción del proyecto -->
+    <section id="acerca-del-terreno">
+        <h1>Acerca del Terreno Chipaquense</h1>
+        <div class="content-container">
+            <!-- Descripción del proyecto (a la izquierda) -->
+            <div class="description">
+                <p>
+                    Este proyecto tiene como objetivo realizar una descripción y análisis de ingeniería sobre la problemática de deslizamientos o remoción en masa en el barrio Villa Hernández, ubicado en el municipio de Chipaque, Cundinamarca, Colombia. La región presenta suelos inestables, con pendientes pronunciadas y una alta vulnerabilidad a los deslizamientos, especialmente durante la temporada de lluvias.
+                </p>
+                <p>
+                    A lo largo de este análisis, se identifican las causas principales de la inestabilidad del terreno, así como las posibles soluciones para mitigar los riesgos de desastres naturales en la zona. Este trabajo busca ofrecer una visión integral que permita tomar decisiones informadas sobre la seguridad y el desarrollo de la comunidad de Villa Hernández, mejorando la calidad de vida de sus habitantes.
+                </p>
+            </div>
+
+            <!-- Mapa con el polígono (a la derecha) -->
+            <div class="map-container">
+                <div id="map"></div> <!-- Mapa aquí -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Inicializar el mapa
+        var map = L.map('map').setView([4.441993131409433, -74.04655197912243], 15); // Coordenadas centradas en el polígono
+
+        // Agregar el mapa base (utilizamos OpenStreetMap en este caso)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Coordenadas del polígono (GeoJSON)
+        var polygonCoordinates = [
+            [
+                [-74.04655197912243, 4.441993131409433],
+                [-74.0462429920519, 4.442009065493224],
+                [-74.04322237706725, 4.443336904582182],
+                [-74.04404811837736, 4.444696609330791],
+                [-74.04591802289134, 4.443735255842299],
+                [-74.04655730648521, 4.444468221598484],
+                [-74.04755885078342, 4.443889284938493],
+                [-74.04655197912243, 4.441993131409433]
+            ]
+        ];
+
+        // Agregar el polígono al mapa
+        L.polygon(polygonCoordinates[0], {color: 'purple'}).addTo(map);
+    </script>
+</body>
+</html>
