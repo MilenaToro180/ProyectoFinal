@@ -43,6 +43,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Proyecto</title>
     <link rel="stylesheet" href="estilos.css"> 
+    <!-- Cargar la librería Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 <body>
 
@@ -50,7 +52,6 @@
     <header>
         <nav>
             <ul>
-                <!-- Enlaces a los archivos HTML correspondientes -->
                 <li><a href="acerca_del_terreno_chipaquense.html" title="Acerca del Terreno Chipaquense">Acerca del Terreno Chipaquense</a></li>
                 <li><a href="descripcion.html" title="Descripción de las Tecnologías">Tecnologías</a></li>
                 <li><a href="autor.html" title="Autor">Autor</a></li>
@@ -58,66 +59,54 @@
         </nav>
     </header>
 
-    <!-- Secciones de la página -->
-    <section id="acerca-del-terreno">
-        <h1>Acerca del Terreno Chipaquense</h1>
-        <p>Aquí va la descripción del terreno de Chipaquense.</p>
+    <!-- Sección del proyecto con mapa y polígono -->
+    <section id="acerca-del-terreno" style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px;">
+        <div style="flex: 1; margin-right: 20px;">
+            <h1>Acerca del Terreno Chipaquense</h1>
+            <p>
+                Este proyecto tiene como objetivo realizar una descripción y análisis de ingeniería sobre la problemática de deslizamientos o remoción en masa en el barrio Villa Hernández, ubicado en el municipio de Chipaque, Cundinamarca, Colombia. La región presenta suelos inestables, con pendientes pronunciadas y una alta vulnerabilidad a los deslizamientos, especialmente durante la temporada de lluvias.
+            </p>
+            <p>
+                A lo largo de este análisis, se identifican las causas principales de la inestabilidad del terreno, así como las posibles soluciones para mitigar los riesgos de desastres naturales en la zona. Este trabajo busca ofrecer una visión integral que permita tomar decisiones informadas sobre la seguridad y el desarrollo de la comunidad de Villa Hernández, mejorando la calidad de vida de sus habitantes.
+            </p>
+        </div>
+
+        <!-- Mapa interactivo -->
+        <div id="map" style="height: 500px; flex: 1;"></div> <!-- Mapa en la parte derecha -->
     </section>
 
-    <section id="tecnologias">
-        <h1>Tecnologías</h1>
-        <p>Aquí va la descripción de las tecnologías que estás utilizando.</p>
-    </section>
+    <!-- Cargar la librería Leaflet.js -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    
+    <script>
+        // Inicializar el mapa
+        var map = L.map('map').setView([4.441993131409433, -74.04655197912243], 15); // Coordenadas centradas en el polígono
 
-    <section id="autor">
-        <h1>Autor</h1>
-        <p>Aquí va la información sobre el autor.</p>
-    </section>
+        // Agregar el mapa base (utilizamos OpenStreetMap en este caso)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
 
-    <script src="programa.js"></script> <!-- Enlace al archivo de JavaScript -->
+        // Coordenadas del polígono (según los datos GeoJSON proporcionados)
+        var polygonCoordinates = [
+            [
+                [-74.04655197912243, 4.441993131409433],
+                [-74.0462429920519, 4.442009065493224],
+                [-74.04322237706725, 4.443336904582182],
+                [-74.04404811837736, 4.444696609330791],
+                [-74.04591802289134, 4.443735255842299],
+                [-74.04655730648521, 4.444468221598484],
+                [-74.04755885078342, 4.443889284938493],
+                [-74.04655197912243, 4.441993131409433]
+            ]
+        ];
+
+        // Agregar el polígono al mapa
+        L.polygon(polygonCoordinates[0], {color: 'purple'}).addTo(map); // Cambia el color del polígono si lo deseas
+
+        // Ajustar el mapa para que se enfoque en el polígono
+        map.fitBounds(L.polygon(polygonCoordinates[0]).getBounds());
+    </script>
 </body>
 </html>
 
-<!-- Acerca del Terreno Chipaquense -->
-<section id="acerca-del-terreno" style="display: flex; justify-content: space-between; align-items: center; padding: 20px;">
-    <div style="flex: 1; margin-right: 20px;">
-        <h1>Acerca del Terreno Chipaquense</h1>
-        <p>
-            Este proyecto tiene como objetivo realizar una descripción y análisis de ingeniería sobre la problemática de deslizamientos o remoción en masa en el barrio Villa Hernández, ubicado en el municipio de Chipaque, Cundinamarca, Colombia. La región presenta suelos inestables, con pendientes pronunciadas y una alta vulnerabilidad a los deslizamientos, especialmente durante la temporada de lluvias.
-        </p>
-        <p>
-            A lo largo de este análisis, se identifican las causas principales de la inestabilidad del terreno, así como las posibles soluciones para mitigar los riesgos de desastres naturales en la zona. Este trabajo busca ofrecer una visión integral que permita tomar decisiones informadas sobre la seguridad y el desarrollo de la comunidad de Villa Hernández, mejorando la calidad de vida de sus habitantes.
-        </p>
-    </div>
-
-    <!-- Mapa interactivo -->
-    <div id="map" style="height: 500px; flex: 1;"></div> <!-- Mapa en la parte derecha -->
-</section>
-
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> <!-- Agregar Leaflet.js -->
-<script>
-    // Inicializar el mapa
-    var map = L.map('map').setView([4.441993131409433, -74.04655197912243], 15); // Coordenadas centradas en el polígono
-
-    // Agregar el mapa base (utilizamos OpenStreetMap en este caso)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-
-    // Coordenadas del polígono (según los datos GeoJSON proporcionados)
-    var polygonCoordinates = [
-        [
-            [-74.04655197912243, 4.441993131409433],
-            [-74.0462429920519, 4.442009065493224],
-            [-74.04322237706725, 4.443336904582182],
-            [-74.04404811837736, 4.444696609330791],
-            [-74.04591802289134, 4.443735255842299],
-            [-74.04655730648521, 4.444468221598484],
-            [-74.04755885078342, 4.443889284938493],
-            [-74.04655197912243, 4.441993131409433]
-        ]
-    ];
-
-    // Agregar el polígono al mapa
-    L.polygon(polygonCoordinates[0], {color: 'purple'}).addTo(map); // Cambia el color del polígono si lo deseas
-</script>
