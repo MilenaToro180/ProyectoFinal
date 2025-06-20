@@ -142,7 +142,7 @@ header {
 }
 
 .header-content {
-    display: flex; /* Activa Flexbox para alinear elementos */
+    display: flex; /* Acctiva Flexbox para alinear elementos */
     align-items: center; /* Alinea verticalmente el logo y el título */
     gap: 15px; /* Crea un espacio de 15px entre el logo y el título */
 }
