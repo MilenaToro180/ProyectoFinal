@@ -1,38 +1,67 @@
 <html lang="en">
 <head>
-     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Sitio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
+     <link rel="stylesheet" href="../static/css/estilos.css">
 
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilos.css">
-    <title>Document</title>
 </head>
 <body>
+        <header>
+        <div>
+            <div>
+                <!--Aquí va el logo-->
+            </div>
+            <div>
+                <h1>MAWAT - Mass Movemevent Analytical Tool</h1>
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-sm bg-light">
+         <div class="container-fluid">
+        <ul  class="navbar-nav">
+            <li  class="nav-item">
+               <a class="nav-link" href="addPoint.html">Agregar Predio</a>
+            </li>
+            <li  class="nav-item">
+               <a class="nav-link" href="https://es.wikipedia.org/wiki/Chipaque">Chipaque</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="https://www.researchgate.net/profile/Paulo-Cesar-Coronado-Sanchez">Autor</a>
+            </li>
+            
+        </ul>
+        </div>
+    </nav>
      <div id="map"></div>
      <div id="formulario">
         <form action="">
-            <label for="nombre"> Nombre del propietario</label>
-            <input type="text" name="nombre" id="nombre">
-            <label for="estado"> estado del inmueble</label>
-            <input type="text" name="estado" id="estado">
-            <label for="correo"> correo de contacto</label>
-            <input type="text" name="correo" id="correo">
-            <label for="estrato"> estrato del inmueble</label>
-            <input type="text" name="estrato" id="estrato">
-            <label for="niveles"> niveles del inmueble</label>
-            <input type="text" name="niveles" id="niveles">
-
-
-
-        </form>>
+            <div class="form-group">
+            <label for="nombre">Nombre del Propietario:</label>
+            <input class="form-control" type="text" name="nombre" id="nombre">
+            <label for="celular">Celular de Contacto:</label>
+            <input class="form-control" type="text" name="celular" id="celular">
+            <label for="estado">Estado del inmueble:</label>
+            <input class="form-control" type="text" name="estado" id="estado">
+            <label for="niveles">niveles del inmueble:</label>
+            <input class="form-control" type="text" name="niveles" id="niveles">
+            <label for="chip">chip predial del inmueble:</label>
+            <input class="form-control" type="text" name="chip" id="chip">
+            <label for="dr">direccion:</label>
+            <input class="form-control" type="text" name="dr" id="dr">
+            <button type="button" class="btn btn-primary">Aceptar</button>
+            </div>
+        </form>
      </div>
-     <script src="programa.js"></script>
-    
+     <script src="../static/js/programa.js"></script>
 </body>
 </html>

@@ -1,4 +1,158 @@
 #map { height: 500px; }
+
 #formulario{
     width: 50%;
+}
+
+
+/* --- ESTILOS PARA EL HEADER Y EL LOGO --- */
+
+header {
+    /* Fondo con los colores de la bandera de Chipaque (Verde, Blanco, Amarillo) */
+    background: linear-gradient(90deg, #009B48 33%, #FFFFFF 33%, #FFFFFF 66%, #FCD116 66%);
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.header-content {
+    display: flex; 
+    align-items: center; 
+    gap: 15px; 
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+}
+
+header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20.2em; /* Esta fuente necesita ser más grande para tener impacto */
+    color: #2c2c2c;
+    text-shadow: none;
+    margin: 0;
+    letter-spacing: 2px; /* Añade un poco de espacio entre letras */
+}
+
+
+/* --- CONTENEDOR PRINCIPAL Y TEXTOS --- */
+
+.container {
+    width: 100%;
+    max-width: 1200px; /* Le damos un poco más de espacio */
+    margin: auto;
+    padding: 2rem;
+    display: flex; /* Activamos Flexbox */
+    justify-content: flex-start; /* ¡Alineamos el contenido a la izquierda! */
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Reducimos un poco el espacio entre elementos */
+}
+
+.textImg {
+    text-align: left; /* Alineamos el texto a la izquierda dentro del bloque */
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px; /* ¡Limitamos el ancho para que no cubra la iglesia! */
+}
+
+/* Estilos para el título "CHIPAQUE" */
+.textLarge {
+    font-family: 'Oswald', sans-serif; /* ¡Usamos la nueva fuente! */
+    font-size: 4.5em; /* ¡Aumentamos el tamaño! Ajusta si es necesario */
+    font-weight: 700;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+/* --- (Aquí va el resto de tu CSS: body, footer, etc.) --- */
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('../img/chipaqueportada-min.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      color: white;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: auto;
+      padding: 2rem 1rem;
+    }
+
+    .col {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .textImg {
+      text-align: left;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .textLarge {
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      font-size: 5em;
+      margin: 0;
+    }
+
+    .textMedium {
+      font-size: 1.5em;
+      margin: 0;
+    }
+
+    .description {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border-radius: 8px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.9em;
+    }
+    /* --- ESTILOS PARA EL HEADER Y EL LOGO --- */
+
+header {
+    background-color: rgba(20, 20, 20, 0.8); /* Fondo semitransparente para que se lea mejor el título */
+    padding: 10px 20px; /* Espacio interno para que no esté pegado a los bordes */
+    width: 100%;
+    box-sizing: border-box; /* Asegura que el padding no aumente el ancho total */
+}
+
+.header-content {
+    display: flex; /* Activa Flexbox para alinear elementos */
+    align-items: center; /* Alinea verticalmente el logo y el título */
+    gap: 15px; /* Crea un espacio de 15px entre el logo y el título */
+}
+
+.logo-imagen {
+    height: 65px; /* ¡AQUÍ AJUSTAS EL TAMAÑO! Prueba con 50px, 70px, etc. */
+    width: auto;  /* El ancho se ajusta automáticamente para mantener la proporción */
+}
+
+/* Opcional: Ajustar el tamaño del título en pantallas pequeñas */
+header h1 {
+    font-size: 1.5em; /* Puedes ajustar esto si el título es muy grande */
 }
