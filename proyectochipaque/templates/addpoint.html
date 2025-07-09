@@ -50,7 +50,14 @@
             <input class="form-control" type="text" name="nombre" id="nombre">
             <label for="celular">Celular de Contacto:</label>
             <input class="form-control" type="text" name="celular" id="celular">
-            <label for="estado">Estado del inmueble:</label>
+            <label for="estado">
+  Estado del inmueble por remoción en masa (1: leve, 2: moderado, 3: severo):
+</label>
+<select id="estado" name="estado">
+  <option value="1">1 - Daños leves (habitable)</option>
+  <option value="2">2 - Daños moderados (uso restringido)</option>
+  <option value="3">3 - Daños severos (no habitable)</option>
+</select>
             <input class="form-control" type="text" name="estado" id="estado">
             <label for="niveles">niveles del inmueble:</label>
             <input class="form-control" type="text" name="niveles" id="niveles">
